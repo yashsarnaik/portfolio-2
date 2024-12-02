@@ -65,7 +65,7 @@ const LocationCard = () => {
     <div className='relative flex h-60 flex-col gap-6 overflow-hidden rounded-xl p-4 shadow-feature-card dark:shadow-feature-card-dark lg:p-6'>
       <div className='flex items-center gap-2'>
         <MapPinIcon className='size-[18px]' />
-        <h2 className='text-sm font-light'>India</h2>
+        <h2 className='text-sm font-light'>Kolhapur,India</h2>
       </div>
       <div className='absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[350px]'>
         <div
