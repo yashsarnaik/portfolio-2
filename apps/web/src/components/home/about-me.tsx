@@ -5,7 +5,6 @@ import { cn } from '@tszhong0411/utils'
 import { motion, useInView } from 'framer-motion'
 import * as React from 'react'
 
-import CodingHours from './coding-hours'
 import Connect from './connect'
 import FavouriteFramework from './favourite-framework'
 import LocationCard from './location-card'
@@ -50,9 +49,7 @@ const AboutMe = () => {
         transition={{
           duration: 0.3
         }}
-      >
-        About Me
-      </motion.h2>
+      />
       <motion.div
         className='mt-12 grid gap-4 md:grid-cols-2'
         initial={{
@@ -74,7 +71,6 @@ const AboutMe = () => {
         <div className='grid gap-4'>
           <Connect />
           <div className='grid gap-4 [@media(min-width:450px)]:grid-cols-2'>
-            <CodingHours />
             <FavouriteFramework />
           </div>
         </div>

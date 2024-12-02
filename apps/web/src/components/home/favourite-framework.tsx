@@ -1,4 +1,4 @@
-import { SiNextdotjs } from '@icons-pack/react-simple-icons'
+import { SiFastapi } from '@icons-pack/react-simple-icons'
 import { HeartIcon } from 'lucide-react'
 
 const FavouriteFramework = () => {
@@ -9,7 +9,7 @@ const FavouriteFramework = () => {
         <h2 className='text-sm font-light'>Fav. framework</h2>
       </div>
       <div className='flex items-center justify-center'>
-        <SiNextdotjs size={80} className='text-zinc-800 dark:text-zinc-200' />
+        <SiFastapi size={80} className='text-zinc-800 dark:text-zinc-200' />
       </div>
     </div>
   )

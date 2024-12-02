@@ -1,19 +1,12 @@
 import {
   type IconType,
-  SiFacebook,
   SiGithub,
   SiInstagram,
-  SiX,
-  SiYoutube
+  SiLinkedin,
+  SiSnapchat,
+  SiX
 } from '@icons-pack/react-simple-icons'
-import {
-  BarChartIcon,
-  FlameIcon,
-  MessageCircleIcon,
-  MonitorIcon,
-  PencilIcon,
-  UserCircleIcon
-} from 'lucide-react'
+import { FlameIcon, MonitorIcon, UserCircleIcon } from 'lucide-react'
 
 type HeaderLinks = Array<{
   icon: React.ReactNode
@@ -36,21 +29,6 @@ type SocialLinks = Array<{
 }>
 
 export const HEADER_LINKS: HeaderLinks = [
-  {
-    icon: <PencilIcon className='size-3.5' />,
-    href: '/blog',
-    text: 'Blog'
-  },
-  {
-    icon: <MessageCircleIcon className='size-3.5' />,
-    href: '/guestbook',
-    text: 'Guestbook'
-  },
-  {
-    icon: <BarChartIcon className='size-3.5' />,
-    href: '/dashboard',
-    text: 'Dashboard'
-  },
   {
     icon: <FlameIcon className='size-3.5' />,
     href: '/projects',
@@ -76,27 +54,16 @@ export const FOOTER_LINKS: FooterLinks = [
         href: '/',
         text: 'Home'
       },
-      {
-        href: '/blog',
-        text: 'Blog'
-      },
+
       {
         href: '/about',
         text: 'About'
-      },
-      {
-        href: '/dashboard',
-        text: 'Dashboard'
       }
     ]
   },
   {
     id: 2,
     links: [
-      {
-        href: '/guestbook',
-        text: 'Guestbook'
-      },
       {
         href: '/uses',
         text: 'Uses'
@@ -142,8 +109,8 @@ export const SOCIAL_LINKS: SocialLinks = [
   },
   {
     href: 'https://www.facebook.com/tszhong0411/',
-    title: 'Facebook',
-    icon: SiFacebook
+    title: 'LinkedIn',
+    icon: SiLinkedin
   },
   {
     href: 'https://www.instagram.com/tszhong0411/',
@@ -157,7 +124,7 @@ export const SOCIAL_LINKS: SocialLinks = [
   },
   {
     href: 'https://www.youtube.com/@tszhong0411',
-    title: 'YouTube',
-    icon: SiYoutube
+    title: 'Snapchat',
+    icon: SiSnapchat
   }
 ]
