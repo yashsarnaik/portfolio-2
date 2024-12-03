@@ -4,46 +4,94 @@
   "type": "module",
   "scripts": {
     "build": "turbo build",
+    "build:apps": "turbo build --filter=./apps/*",
     "build:packages": "turbo build --filter=./packages/*",
-    "check": "pnpm format:check && turbo lint && turbo type-check",
-    "check:knip": "knip",
+    "check": "turbo lint && turbo type-check && pnpm format:check && pnpm check:spelling && pnpm check:knip",
+    "check:knip": "cross-env VITE_CJS_IGNORE_WARNING=true dotenv -e .env.local -- knip",
     "check:npm": "pnpm dlx npm-check-updates --deep --interactive --format group",
-    "clean": "turbo clean",
+    "check:spelling": "cspell --show-context --show-suggestions",
+    "clean": "turbo clean && rm -rf .turbo coverage",
+    "commit": "cz",
     "db:check": "turbo db:check",
     "db:generate": "turbo db:generate",
+    "db:migrate": "turbo db:migrate",
     "db:push": "turbo db:push",
+    "db:seed": "turbo db:seed",
     "db:studio": "turbo db:studio",
     "dev": "turbo dev",
+    "dev:docs": "turbo dev --filter=@tszhong0411/docs",
+    "dev:packages": "turbo dev --filter=./packages/*",
+    "dev:web": "turbo dev --filter=@tszhong0411/web",
     "format:check": "prettier --cache --check --ignore-path .gitignore --ignore-path .prettierignore .",
     "format:write": "prettier --cache --write --list-different --ignore-path .gitignore --ignore-path .prettierignore .",
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx --yes only-allow pnpm",
     "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix",
-    "prepare": "husky",
+    "lint:fix": "turbo lint:fix && pnpm format:write && tsx scripts/fix-cspell.ts",
+    "prepare": "husky && pnpm build:packages",
     "release": "changeset publish",
+    "test:e2e": "turbo test:e2e",
+    "test:e2e:inspector": "turbo test:e2e:inspector",
+    "test:e2e:install": "playwright install",
+    "test:e2e:ui": "turbo test:e2e:ui",
+    "test:unit": "vitest run",
+    "test:unit:coverage": "vitest --coverage --ui",
+    "test:unit:ui": "vitest --ui",
     "type-check": "turbo type-check",
-    "version": "turbo build --filter=./packages/* && changeset version"
+    "version": "changeset version"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.1",
-    "@commitlint/cli": "^18.6.1",
-    "@commitlint/config-conventional": "^18.6.2",
+    "@changesets/cli": "^2.27.5",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@cspell/dict-fullstack": "^3.1.8",
+    "@cspell/dict-npm": "^5.0.16",
+    "@cspell/dict-redis": "^1.0.1",
+    "@cspell/dict-software-terms": "^3.4.6",
+    "@playwright/test": "^1.44.1",
+    "@tszhong0411/eslint-config": "workspace:*",
     "@tszhong0411/prettier-config": "workspace:*",
-    "dotenv": "^16.4.5",
+    "@tszhong0411/tsconfig": "workspace:*",
+    "@turbo/gen": "^2.0.11",
+    "@types/node": "^20.14.2",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
+    "commitizen": "^4.3.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "cspell": "^8.9.0",
+    "cz-git": "^1.9.3",
+    "dotenv-cli": "^7.4.2",
+    "eslint": "^8.57.0",
     "husky": "^9.0.11",
-    "knip": "^5.0.2",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "tsup": "^8.0.2",
-    "tsx": "^4.7.1",
-    "turbo": "^1.12.4",
-    "typescript": "^5.3.3"
+    "jsdom": "^24.1.0",
+    "knip": "^5.18.2",
+    "lint-staged": "^15.2.6",
+    "prettier": "^3.3.2",
+    "tsup": "^8.1.0",
+    "tsx": "^4.15.2",
+    "turbo": "^2.1.1",
+    "typescript": "5.5.1-rc",
+    "vitest": "^1.6.0"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
+    "node": ">=20.11.0",
+    "pnpm": ">=9"
   },
-  "packageManager": "pnpm@8.15.4",
-  "prettier": "@tszhong0411/prettier-config"
+  "lint-staged": {
+    "*.{cjs,mjs,js,jsx,cts,mts,ts,tsx,json}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@rc",
+      "@types/react-dom": "npm:types-react-dom@rc"
+    }
+  }
 }
