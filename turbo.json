@@ -1,22 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    "**/.env.*local"
-  ],
-  "globalEnv": [
-    "NODE_ENV",
-    "CI"
-  ],
-  "tasks": {
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": ["NODE_ENV", "CI"],
+  "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "dist/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "clean": {
       "cache": false
@@ -32,9 +21,7 @@
       "cache": false
     },
     "start": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     },
     "db:check": {},
     "db:generate": {},
@@ -42,13 +29,8 @@
     "db:studio": {},
     "type-check": {},
     "blog#build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
         "ANALYZE",
         "SPOTIFY_CLIENT_ID",
@@ -73,9 +55,7 @@
       ]
     },
     "ui#build": {
-      "dependsOn": [
-        "utils#build"
-      ]
+      "dependsOn": ["utils#build"]
     }
   }
 }

@@ -24,7 +24,7 @@ const Footer = () => {
         ))}
       </div>
       <div className='mt-20 flex items-center justify-between text-sm'>
-        <div>&copy; {new Date().getFullYear()} Yash Sarnaik</div>
+        <div>&copy; {new Date().getFullYear()} Hong</div>
       </div>
     </footer>
   )
