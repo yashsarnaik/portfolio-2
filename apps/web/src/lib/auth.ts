@@ -17,7 +17,7 @@ declare module 'next-auth' {
   }
 
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions, @typescript-eslint/no-empty-interface
-  interface User extends DatabaseUser {}
+  interface User extends DatabaseUser { }
 }
 
 const config: NextAuthConfig = {

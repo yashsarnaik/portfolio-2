@@ -7,7 +7,7 @@ import { SITE_URL } from '@/lib/constants'
 import { getPage, type PageMetadata } from '@/lib/mdx'
 
 const title = 'About'
-const description = 'A student who loves web development.'
+const description = 'An AI/ML Developer'
 
 type AboutPageProps = {
   params: Record<string, never>
@@ -53,7 +53,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <PageTitle title='About' description='👋 Hi there! I am Hong.' />
+      <PageTitle title='About' description='👋 Hi there! I am Yash.' />
       <Mdx content={content} />
     </>
   )

@@ -11,7 +11,6 @@ import { AutoRefresh } from '@/components/auto-refresh'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import Hello from '@/components/hello'
-import SignInModal from '@/components/sign-in-modal'
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -145,7 +144,6 @@ const RootLayout = (props: RootLayoutProps) => {
 
             <Footer />
             <Analytics />
-            <SignInModal />
             <Image
               width={1512}
               height={550}

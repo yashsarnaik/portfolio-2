@@ -16,10 +16,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
 
   const routes = [
     '',
-    '/blog',
-    '/guestbook',
     '/projects',
-    '/dashboard',
     ...getAllPages<PageMetadata>('pages').map((page) => `/${page.slug}`),
     ...getAllPages<ProjectMetadata>('projects').map(
       (project) => `/projects/${project.slug}`

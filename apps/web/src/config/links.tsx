@@ -6,7 +6,7 @@ import {
   SiSnapchat,
   SiX
 } from '@icons-pack/react-simple-icons'
-import { FlameIcon, MonitorIcon, UserCircleIcon } from 'lucide-react'
+import { FlameIcon, UserCircleIcon } from 'lucide-react'
 
 type HeaderLinks = Array<{
   icon: React.ReactNode
@@ -38,12 +38,8 @@ export const HEADER_LINKS: HeaderLinks = [
     icon: <UserCircleIcon className='size-3.5' />,
     href: '/about',
     text: 'About'
-  },
-  {
-    icon: <MonitorIcon className='size-3.5' />,
-    href: '/uses',
-    text: 'Uses'
   }
+
 ]
 
 export const FOOTER_LINKS: FooterLinks = [

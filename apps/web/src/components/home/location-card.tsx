@@ -43,14 +43,14 @@ const LocationCard = () => {
       dark: 1,
       diffuse: 2,
       mapSamples: 36_000,
-      mapBrightness: 2,
+      mapBrightness: 3,
       baseColor: [0.8, 0.8, 0.8],
       markerColor: [235 / 255, 35 / 255, 35 / 255],
       glowColor: [0.5, 0.5, 0.5],
       markers: [{ location: [16.705, 74.2433], size: 0.1 }],
       scale: 1.05,
       onRender: (state) => {
-        state.phi = 2.75 + r.get()
+        state.phi = 3.15 + r.get()
         state.width = width * 2
         state.height = width * 2
       }
